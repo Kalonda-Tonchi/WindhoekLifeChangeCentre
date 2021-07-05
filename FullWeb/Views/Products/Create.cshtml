@@ -1,0 +1,53 @@
+﻿@model FullWeb.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClothingType" class="control-label"></label>
+                <input asp-for="ClothingType" class="form-control" />
+                <span asp-validation-for="ClothingType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClothingColor" class="control-label"></label>
+                <input asp-for="ClothingColor" class="form-control" />
+                <span asp-validation-for="ClothingColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClothingSize" class="control-label"></label>
+                <input asp-for="ClothingSize" class="form-control" />
+                <span asp-validation-for="ClothingSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClothingPrice" class="control-label"></label>
+                <input asp-for="ClothingPrice" class="form-control" />
+                <span asp-validation-for="ClothingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fabric" class="control-label"></label>
+                <input asp-for="Fabric" class="form-control" />
+                <span asp-validation-for="Fabric" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
