@@ -17,6 +17,7 @@ namespace FullWeb.Controllers
         public DonationsController(ApplicationDbContext context)
         {
             _context = context;
+
         }
 
         // GET: Donations

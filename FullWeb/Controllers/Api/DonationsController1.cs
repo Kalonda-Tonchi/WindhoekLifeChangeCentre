@@ -16,18 +16,21 @@ namespace FullWeb.Controllers.Api
     public class DonationsController1 : Controller
     {
         private ApplicationDbContext _context;
+        private IMapper _mapper;
 
-        public DonationsController1(ApplicationDbContext context)
+        public DonationsController1(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Donations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DonationDto>>> GetDonations()
         {
-            var donation = await _context.Donation.Include(d => d.Product).Include(d => d.Project).ToList().Select(Mapper.Map<Donation, DonationDto>);
-            return Ok(donation);
+         
+            var donation = await _context.Donation.Include(d => d.Product).Include(d => d.Project).ToListAsync();
+            return Ok(_mapper.Map<DonationDto>(donation));
         }
 
         // GET: api/Donations/1
@@ -41,7 +44,7 @@ namespace FullWeb.Controllers.Api
                 return NotFound();
             }
 
-            return Ok(Mapper.Map<DonationDto, Donation>(donation));
+            return Ok(_mapper.Map<DonationDto>(donation));
         }
 
         // POST: api/Donations
@@ -51,9 +54,10 @@ namespace FullWeb.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var donation = Mapper.Map<DonationDto, Donation>(donationDto);
+            var donation = _mapper.Map<DonationDto, Donation>(donationDto);
+
             _context.Donation.Add(donation);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             donationDto.Id = donation.Id;
 
@@ -74,9 +78,9 @@ namespace FullWeb.Controllers.Api
             if (donationInDb == null)
                 return NotFound();
 
-            Mapper.Map(donationDto, donationInDb);
+            _mapper.Map(donationDto, donationInDb);
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
@@ -90,7 +94,8 @@ namespace FullWeb.Controllers.Api
                 return NotFound();
 
             _context.Donation.Remove(donationInDb);
-            _context.SaveChanges();
+
+            await _context.SaveChangesAsync();
 
             return Ok();
         }

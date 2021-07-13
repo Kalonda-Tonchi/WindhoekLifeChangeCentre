@@ -57,7 +57,7 @@ namespace FullWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,Surname,ProjectId")] Volunteer volunteer)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,Surname,ProjectId,BirthDate")] Volunteer volunteer)
         {
             if (ModelState.IsValid)
             {

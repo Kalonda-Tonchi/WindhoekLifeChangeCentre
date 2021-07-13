@@ -15,6 +15,6 @@ namespace FullWeb.Models
 
         [Required]
         [Display(Name = "Project: ")]
-        public string ProjectName { get; set; }
+        public string ProjectName { get; set; } 
     }
 }

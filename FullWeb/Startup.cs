@@ -76,7 +76,7 @@ namespace FullWeb
 
             services.Configure<RequestLocalizationOptions>(options =>
             {
-                var supportedCultures = new[] { "en-US", "hi-IN" };
+                var supportedCultures = new[] { "en-US", "af-ZA" };
                 options.SetDefaultCulture(supportedCultures[0])
                     .AddSupportedCultures(supportedCultures)
                     .AddSupportedUICultures(supportedCultures);

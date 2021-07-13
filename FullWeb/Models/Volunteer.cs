@@ -24,6 +24,7 @@ namespace FullWeb.Models
 
         [Required]
         [VolunteerMustBe18YearsOld]
+        [Display(Name ="Enter your date of birth: ")]
         public DateTime BirthDate { get; set; }
 
         [Required]
