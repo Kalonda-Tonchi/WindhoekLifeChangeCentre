@@ -1,0 +1,197 @@
+﻿@model FullWeb.ViewModel.DonationViewModel
+
+@{
+    ViewData["Title"] = "DonationOptions";
+}
+
+<h1 class="fa-align-center">Donation Options: </h1>
+
+<br />
+<br />
+<br />
+<style>
+
+    #preloadedImages {
+        width: 0px;
+        height: 0px;
+        display: none;
+        background-image: url("https://windhoeklcc.scm.azurewebsites.net/api/vfs/site/wwwroot/wwwroot/Images/WLCC%2013.jpg");
+        background-image: url("https://windhoeklcc.scm.azurewebsites.net/api/vfs/site/wwwroot/wwwroot/Images/WLCC%203.jpg");
+    }
+
+
+.grid {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__col p {
+    font-size: 12px;
+    margin: 2rem;
+    color: #fff;
+    opacity: 1;
+    font-weight: bold;
+    display: inline;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.grid__col a {
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+}
+
+.grid #one, .grid #two, .grid #three, .grid #four, .grid #five {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+
+@@media only screen and (max-width: 480px) {
+    .grid__col {
+        padding: 5em;
+    }
+
+        .grid__col p {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.81);
+            color: #000;
+            margin: 0;
+        }
+
+    .video-foreground, .video-background iframe {
+        display: none !important;
+    }
+
+    .grid #one {
+        background-image: url("https://windhoeklcc.scm.azurewebsites.net/api/vfs/site/wwwroot/wwwroot/Images/WLCC%2013.jpg");
+    }
+
+    .grid #two {
+        background-image: url("https://windhoeklcc.scm.azurewebsites.net/api/vfs/site/wwwroot/wwwroot/Images/WLCC%203.jpg");
+    }
+
+
+}
+
+@@media only screen and (min-width: 480px) {
+    .grid__col {
+        width: 100%;
+        height: 35px;
+        padding-top: 25px;
+        background-color: transparent;
+        background-position: center;
+        border: 1px solid #e4e4e4;
+        flex: 1;
+        opacity: 0.7;
+        webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        -ms-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        transition: all 2s ease-in-out;
+    }
+
+        .grid__col:hover p {
+            background: rgba(255, 255, 255, 0.91);
+            color: #000;
+            webkit-transition: all 2s ease-in-out;
+            -moz-transition: all 2s ease-in-out;
+            -ms-transition: all 2s ease-in-out;
+            -o-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+        }
+
+    .grid #one:hover, .grid #two:hover {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        z-index: 3;
+        opacity: 1;
+        webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        -ms-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        transition: all 2s ease-in-out;
+    }
+
+    .grid #one:hover {
+        background-image: url("https://windhoeklcc.azurewebsites.net/Images/WLCC%2013.jpg");
+    }
+
+    .grid #two:hover {
+        background-image: url("https://windhoeklcc.azurewebsites.net//Images/WLCC%203.jpg");
+    }
+
+
+}
+
+@@media (min-width: 640px) {
+    .grid {
+        display: flex;
+    }
+
+    .grid__col {
+        margin-bottom: 0;
+        height: 500px
+    }
+
+        .grid__col:first-child {
+            margin-left: 0;
+        }
+
+    .grid__col--2 {
+        flex: 2;
+    }
+
+    .grid__col--3 {
+        flex: 3;
+    }
+}
+
+
+</style>
+
+<div id="preloadedImages">
+</div>
+
+<div id="home-kickstarter" class="index-section home-kickstarter" data-section-id="1524779117582" data-section-type="home-kickstarter">
+
+    <div class="home-kickstarter">
+
+        <span class="prlx-bg prlx-bg--1524779117582 no-js lazyload"
+              data-sizes="auto"
+              data-parent-fit="cover">
+            <img class="no-js lazyload lazypreload"
+                 data-src=""
+                 data-widths="[320, 360, 375, 414, 568, 684, 720, 732, 736, 768, 1024, 1200, 1296, 1512, 1728, 1944, 2048, 4472]"
+                 data-aspectratio=""
+                 data-sizes="auto"
+                 data-parent-fit="width"
+                 alt="" />
+
+            
+            </div>
+        </span>
+        <noscript>
+            <span class="prlx-bg prlx-bg--1524779117582"></span>
+        </noscript>
+
+        <div class="wrapp wrapper--margins">
+
+            <div class="grid">
+                <div class="grid__col" id="one"><a asp-area="" asp-controller="Donations" asp-action="Create"><h2 style="color: black; font-family: 'Cookie', cursive;">Donate Funds</h2></a></div>
+                <div class="grid__col" id="two"><a asp-area="" asp-controller="Goods" asp-action="Create"><h2 style="color: black; font-family: 'Cookie', cursive;">Donate Goods</h2></a></div>
+            </div>
+           
+
+
+        </div>
+    </div>
+</div>
+

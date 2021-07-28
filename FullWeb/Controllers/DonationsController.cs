@@ -8,8 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using FullWeb.Data;
 using FullWeb.Models;
 
+
 namespace FullWeb.Controllers
 {
+
     public class DonationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,6 +20,11 @@ namespace FullWeb.Controllers
         {
             _context = context;
 
+        }
+        
+        public IActionResult DonationOptions()
+        {
+            return View();
         }
 
         // GET: Donations
@@ -51,7 +58,7 @@ namespace FullWeb.Controllers
         // GET: Donations/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Id");
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "ClothingType");
             ViewData["ProjectId"] = new SelectList(_context.Set<Project>(), "Id", "ProjectName");
             return View();
         }
@@ -69,7 +76,7 @@ namespace FullWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Id", donation.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "ClothingType", donation.ProductId);
             ViewData["ProjectId"] = new SelectList(_context.Set<Project>(), "Id", "ProjectName", donation.ProjectId);
             return View(donation);
         }

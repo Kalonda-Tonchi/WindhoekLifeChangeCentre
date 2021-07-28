@@ -18,5 +18,7 @@ namespace FullWeb.Data
         public DbSet<FullWeb.Models.Donation> Donation { get; set; }
         public DbSet<FullWeb.Models.Project> Project { get; set; }
         public DbSet<FullWeb.Models.Volunteer> Volunteer { get; set; }
+        public DbSet<FullWeb.Models.Goods> Goods { get; set; }
+        public DbSet<FullWeb.Models.GoodsByCategory> GoodsByCategory { get; set; }
     }
 }

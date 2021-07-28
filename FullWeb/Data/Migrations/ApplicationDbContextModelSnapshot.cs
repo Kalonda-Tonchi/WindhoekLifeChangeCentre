@@ -16,7 +16,7 @@ namespace FullWeb.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.7")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("FullWeb.Models.Donation", b =>
@@ -65,6 +65,51 @@ namespace FullWeb.Data.Migrations
                     b.HasIndex("ProjectId");
 
                     b.ToTable("Donation");
+                });
+
+            modelBuilder.Entity("FullWeb.Models.Goods", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AmountOfGoodsDonating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GoodsByCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GoodsByCategoryId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Goods");
+                });
+
+            modelBuilder.Entity("FullWeb.Models.GoodsByCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GoodsByCategory");
                 });
 
             modelBuilder.Entity("FullWeb.Models.Product", b =>
@@ -366,6 +411,23 @@ namespace FullWeb.Data.Migrations
                     b.Navigation("Project");
                 });
 
+            modelBuilder.Entity("FullWeb.Models.Goods", b =>
+                {
+                    b.HasOne("FullWeb.Models.GoodsByCategory", "GoodsByCategory")
+                        .WithMany("Goods")
+                        .HasForeignKey("GoodsByCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FullWeb.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("GoodsByCategory");
+
+                    b.Navigation("Project");
+                });
+
             modelBuilder.Entity("FullWeb.Models.Product", b =>
                 {
                     b.HasOne("FullWeb.Models.Project", "Project")
@@ -435,6 +497,11 @@ namespace FullWeb.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FullWeb.Models.GoodsByCategory", b =>
+                {
+                    b.Navigation("Goods");
                 });
 #pragma warning restore 612, 618
         }

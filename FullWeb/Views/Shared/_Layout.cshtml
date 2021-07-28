@@ -2,48 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WLCC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
+    <title>@ViewData["Title"] - WLCC </title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/assets/fonts/fontawesome-all.min.css">
+
+    <link rel="stylesheet" href="~/assets/fonts/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/assets/css/gradient-navbar-1.css">
+
+    <link rel="stylesheet" href="~/assets/css/gradient-navbar.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link rel="stylesheet" href="~/assets/css/Projects-Horizontal.css">
+
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
 </head>
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-dark navbar-expand-md fixed-top" id="app-navbar">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FullWeb</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <a class="navbar-brand" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav flex-grow-1 justify-content-between ml-auto navbar-font">
+                        <li class="nav-item"><a class="nav-link active" style="font-family: 'Cookie', cursive;" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-heart"></i>&nbsp;Home </a></li>
+                        <li class="nav-item"><a class="nav-link active" style="font-family: 'Cookie', cursive;" asp-area="" asp-controller="Projects" asp-action="Create"><i class="fas fa-people-carry"></i>&nbsp;Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" style="font-family: 'Cookie', cursive;" href="#"><i class="fas fa-hands"></i>&nbsp;Events</a></li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" href="#" style="font-family: 'Cookie', cursive;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" class="bi bi-images">
+                                    <path fill-rule="evenodd" d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+                                    <path fill-rule="evenodd" d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z"></path>
+                                </svg>&nbsp;Gallery
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link pulse animated infinite" asp-area="" asp-controller="Volunteers" asp-action="Create" style="background: rgba(220,53,69,0.8); border-radius: 30px; font-family: 'Cookie', cursive;" ;> <i class="fas fa-hands-helping"></i>&nbsp;Get Involved | Volunteer</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: 'Cookie', cursive;"><i class="fab fa-blogger"></i>&nbsp;Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: 'Cookie', cursive;"><i class="fas fa-mobile-alt"></i>&nbsp;Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link pulse animated infinite link-color" style="border-radius: 30px; font-family: 'Cookie', cursive;" ; asp-area="" asp-controller="Donations" asp-action="DonationOptions"><i class="fas fa-donate"></i>&nbsp;Donations&nbsp;<i class="icon ion-tshirt"></i></a></li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
+
+    <br />
+    <br />
+    <br />
+
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - FullWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Windhoek Life Change Centre -
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <h5 style="text-align:center;">
+                    UNDER CONSTRUCTION ! 👷
+                </h5>
+            </a>
         </div>
     </footer>
+
+
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/bs-init.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

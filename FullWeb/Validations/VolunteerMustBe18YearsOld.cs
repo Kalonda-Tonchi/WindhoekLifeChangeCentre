@@ -13,17 +13,16 @@ namespace FullWeb.Validations
         {
             var volunteer = (Volunteer)validationContext.ObjectInstance;
 
-            if (volunteer.BirthDate == null)
-                return new ValidationResult("Please fill in your date of birth. ");
+            
 
             var age = DateTime.Now.Year - volunteer.BirthDate.Year;
 
             return (age >= 18)
-                ? ValidationResult.Success
-                : new ValidationResult("You should be at least 18 years old or have consent from a guardian to volunteer abroad. ");
+                ?
+                 ValidationResult.Success :
 
-
-            return ValidationResult.Success;
+                    new ValidationResult("You should be at least 18 years old or have consent from a guardian to volunteer abroad. ");
         }
+      
     }
 }

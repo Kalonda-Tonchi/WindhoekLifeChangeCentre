@@ -16,7 +16,7 @@ namespace FullWeb.Models
         [Display(Name = "Quantity")]
         public string ClothingColor { get; set; }
 
-        [Display(Name = "")]
+        [Display(Name = "")] 
         public char ClothingSize { get; set; }
 
         [DataType(DataType.Currency)]

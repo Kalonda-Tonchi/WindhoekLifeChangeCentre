@@ -8,10 +8,8 @@ namespace FullWeb.ViewModel
 {
     public class DonationViewModel
     {
-        public  Donation Donation { get; set; }
+        public Donation Donation { get; set; }
 
-        public IEnumerable <Project>  Project { get; set; }
-
-        public Product Product { get; set; }
+        public Goods Goods { get; set; }
     }
 }

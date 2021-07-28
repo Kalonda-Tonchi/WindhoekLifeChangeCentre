@@ -1,0 +1,31 @@
+#brand-logo {
+  font-size: 34px;
+}
+
+#app-navbar {
+  background: linear-gradient(120deg, #00e4d0, #5983e8);
+}
+
+.logo-size {
+    width: 90px;
+    height: 90px;
+    margin: -14px;
+    padding: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: -105px;
+    margin-top: -13px;
+}
+
+.ml-auto.navbar-font {
+  font-size: 17px;
+}
+
+.link-color {
+  color: var(--bs-light);
+  background: rgba(215,0,21,0.69);
+}
+
+
+
+

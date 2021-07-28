@@ -1,7 +1,7 @@
 using FullWeb.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Localization;
+//using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Globalization;
+//using System.Globalization;
 using AutoMapper;
 using FullWeb.Mappings;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -36,9 +36,13 @@ namespace FullWeb
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+                
+
+
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 
             //services.AddControllersWithViews();
@@ -68,13 +72,16 @@ namespace FullWeb
 
             services.AddControllersWithViews();
 
+            
+
+            /*
             #region cultures    
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
 
-            services.Configure<RequestLocalizationOptions>(options =>
+             services.Configure<RequestLocalizationOptions>(options =>
             {
                 var supportedCultures = new[] { "en-US", "af-ZA" };
                 options.SetDefaultCulture(supportedCultures[0])
@@ -82,9 +89,10 @@ namespace FullWeb
                     .AddSupportedUICultures(supportedCultures);
             });
             #endregion
-
-
+            
+            */
         }
+            
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -111,12 +119,13 @@ namespace FullWeb
             app.UseAuthorization();
             app.UseSession();
 
-            var supportedCultures = new[] { "en-US", "af-ZA" };
+
+            /* var supportedCultures = new[] { "en-US", "af-ZA" };
             var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
                 .AddSupportedCultures(supportedCultures)
                 .AddSupportedUICultures(supportedCultures);
 
-            app.UseRequestLocalization(localizationOptions);
+            app.UseRequestLocalization(localizationOptions); */
 
             app.UseEndpoints(endpoints =>
             {
