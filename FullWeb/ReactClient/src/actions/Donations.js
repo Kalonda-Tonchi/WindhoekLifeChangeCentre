@@ -6,7 +6,7 @@ const formatData = (data) => ({
     age: parseInt(data.age ? data.age : 0)
 });
 
-export const fetchAll = () => (dispatch) => {
+export const read = () => (dispatch) => {
     api.donor()
         .read()
         .then((response) => {

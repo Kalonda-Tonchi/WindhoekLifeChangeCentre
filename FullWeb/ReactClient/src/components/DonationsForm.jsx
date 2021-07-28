@@ -31,7 +31,7 @@ const styles = (theme) => ({
     }
 });
 
-const DCandidateForm = ({ classes, ...props }) => {
+const DonationsForm = ({ classes, ...props }) => {
     const { addToast } = useToasts();
 
     const validate = (fieldValues = values) => {
