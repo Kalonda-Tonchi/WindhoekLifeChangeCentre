@@ -38,10 +38,10 @@ const DCandidateForm = ({ classes, ...props }) => {
         let temp = { ...errors };
         if ("name" in fieldValues)
             temp.name = fieldValues.name ? "" : "this field is required.";
-        if ("mobile" in fieldValues)
-            temp.mobile = fieldValues.mobile ? "" : "this field is required.";
-        if ("bloodGroup" in fieldValues)
-            temp.bloodGroup = fieldValues.bloodGroup
+        if ("nationality" in fieldValues)
+            temp.nationality = fieldValues.nationality ? "" : "this field is required.";
+        if ("gender" in fieldValues)
+            temp.gender = fieldValues.gender
                 ? ""
                 : "this field is required.";
         if ("email" in fieldValues)
@@ -118,42 +118,37 @@ const DCandidateForm = ({ classes, ...props }) => {
                     <FormControl
                         variant="outlined"
                         className={classes.formControl}
-                        {...(errors.bloodGroup && {
+                        {...(errors.gender && {
                             error: true,
-                            helperText: errors.bloodGroup
+                            helperText: errors.gender
                         })}
                     >
                         <InputLabel>Blood Group</InputLabel>
                         <Select
-                            name="bloodGroup"
-                            value={values.bloodGroup}
+                            name="gender"
+                            value={values.gender}
                             onChange={onChangeHandler}
                         >
-                            <MenuItem value="">Select Blood Group</MenuItem>
-                            <MenuItem value="A+">A+</MenuItem>
-                            <MenuItem value="A-">A-</MenuItem>
-                            <MenuItem value="B+">B+</MenuItem>
-                            <MenuItem value="B-">B-</MenuItem>
-                            <MenuItem value="AB+">AB+</MenuItem>
-                            <MenuItem value="AB-">AB-</MenuItem>
-                            <MenuItem value="O+">O+</MenuItem>
-                            <MenuItem value="O-">O-</MenuItem>
+                            <MenuItem value="">Select Blood Gender</MenuItem>
+                            <MenuItem value="F">A+</MenuItem>
+                            <MenuItem value="M-">A-</MenuItem>
+                           
                         </Select>
                         {errors.bloodGroup && (
-                            <FormHelperText>{errors.bloodGroup}</FormHelperText>
+                            <FormHelperText>{errors.gender}</FormHelperText>
                         )}
                     </FormControl>
                 </Grid>
                 <Grid item xs={6}>
                     <TextField
-                        name="mobile"
+                        name="nationality"
                         variant="outlined"
-                        label="Mobile"
-                        value={values.mobile}
+                        label="Nationaliity"
+                        value={values.nationality}
                         onChange={onChangeHandler}
-                        {...(errors.mobile && {
+                        {...(errors.nationality && {
                             error: true,
-                            helperText: errors.mobile
+                            helperText: errors.nationality
                         })}
                     ></TextField>
                     <TextField
@@ -198,11 +193,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionToProps = {
-    createDCandidates: create,
-    updateDCandidates: update
+    createDonors: create,
+    updateDonors: update
 };
 
 export default connect(
     mapStateToProps,
     mapActionToProps
-)(withStyles(styles)(DCandidateForm));
+)(withStyles(styles)(DonationsForm));

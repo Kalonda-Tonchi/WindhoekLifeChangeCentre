@@ -7,11 +7,11 @@ const formatData = (data) => ({
 });
 
 export const fetchAll = () => (dispatch) => {
-    api.dCandidate()
-        .fetchAll()
+    api.donor()
+        .read()
         .then((response) => {
             dispatch({
-                type: FETCH_ALL,
+                type: READ,
                 payload: response.data
             });
         })
@@ -20,7 +20,7 @@ export const fetchAll = () => (dispatch) => {
 
 export const create = (data, onSuccess) => (dispatch) => {
     data = formatData(data);
-    api.dCandidate()
+    api.donor()
         .create(data)
         .then((response) => {
             dispatch({
@@ -34,7 +34,7 @@ export const create = (data, onSuccess) => (dispatch) => {
 
 export const update = (id, data, onSuccess) => (dispatch) => {
     data = formatData(data);
-    api.dCandidate()
+    api.donor()
         .update(id, data)
         .then((response) => {
             dispatch({
@@ -47,7 +47,7 @@ export const update = (id, data, onSuccess) => (dispatch) => {
 };
 
 export const Delete = (id, onSuccess) => (dispatch) => {
-    api.dCandidate()
+    api.donor()
         .delete(id)
         .then((response) => {
             dispatch({
